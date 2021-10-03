@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  main.container.ContentView(role='main')
+    .jumbotron
+      h1= title
+    div.Lista
+      h2 'Lista de Clientes'
+      table(border='1').listing-table.table-info.table-striped
+        tr.table-info
+          th Nombres
+          th Apellidos
+          th Celular
+          th Correo
+          th Acciones
+        for cliente in clienteList
+          tr.table-info
+            td= cliente.nombres
+            td= cliente.apellidos
+            td= cliente.celular
+            td= cliente.correo
+            td
+              a(href='/cliente/'+cliente._id) Editar

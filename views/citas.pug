@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  main.container.ContentView(role='main')
+    .jumbotron
+      h1= title
+      p.lead
+        | Estás en la página #{title}
+      a.btn.btn-lg.btn-primary(href='#' role='button') Botón &raquo;
+    .container

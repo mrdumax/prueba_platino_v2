@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(charset='utf-8')
+    link(rel="shortcut icon", href="/images/icono.jpg")
+    title #{title} | Anita's Peluqueria
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
+      a.navbar-brand(href='#') Peluqueria Anita
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarCollapse' aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarCollapse.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto.col.justify-content-center
+          li.nav-item.active
+            a.nav-link(href='/') Home 
+          li.nav-item
+            a.nav-link(href='clientes') Clientes
+          li.nav-item
+            a.nav-link(href='citas') Citas
+          li.nav-item
+            a.nav-link(href='atenciones') Atenciones
+        form.mt-md-0.row.gy-1.gx-2.align-items-center
+          div.col-auto
+            input.form-control.mr-sm-2(type='text' placeholder='Buscar' aria-label='Buscar')
+          div.col-auto
+            button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Buscar
+          
+    block content
+
+    footer
+      .container
+        div(align='center')
+          | Desarrollado para 
+          a(href='https://platinomkt.com/' target='_blank') Platino Marketing Promocional
+      
+    script(type='text/javascript', src='/js/jquery.min.js')
+    script(type='text/javascript', src='/js/popper.js')
+    script(type='text/javascript', src='/js/bootstrap.min.js')    
+    
