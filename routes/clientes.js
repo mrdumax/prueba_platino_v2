@@ -1,12 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const { MongoClient } = require('mongodb');
+const uri = "mongodb+srv://admin_peluqueria:EveeCBH5szdHNeNq@cluster0.4eyd6.mongodb.net/test?retryWrites=true&w=majority";
 
 async function getClientesList() {
-    const uri = "mongodb+srv://admin_peluqueria:EveeCBH5szdHNeNq@cluster0.4eyd6.mongodb.net/test?retryWrites=true&w=majority";
-
     const client = new MongoClient(uri);
-
     try {
         await client.connect();
 
@@ -24,6 +22,26 @@ async function getClientesList() {
 router.get('/', async function(req, res, next) {
   var clienteList = await getClientesList();
   res.render('clientes', { title: 'Clientes', clienteList: clienteList });
+});
+
+router.get('/crear', function(req, res, next) {
+  res.render('clientes-crear', { title: 'Clientes:Crear'});
+});
+
+router.post('/guardar', async function (req, res) {
+    const client = new MongoClient(uri);
+    try {
+        await client.connect();
+
+        const result = await client.db("peluqueria_anita").collection("customer").insertOne(req.body);
+	res.send('Se guardo exitosamente');
+
+    } catch (e) {
+        console.error(e);
+	res.send('Error al guardar ' + e);
+    } finally {
+        await client.close();
+    }
 });
 
 module.exports = router;

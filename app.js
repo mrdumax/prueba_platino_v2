@@ -12,6 +12,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -27,6 +28,10 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 
 app.use('/', indexRouter);
 app.use('/clientes', clientesRouter);
+
+app.get('/', function(req, res){
+    res.render("index");
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

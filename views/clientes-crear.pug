@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  main.container.ContentView(role='main')
+    .jumbotron
+      h1.LetrasBlancas= title
+    div.Lista.col
+      div.row
+        form(method='POST',action='/clientes/guardar')
+          div.mb-3
+            label.form-label Nombres
+            input.form-control(name='nombres',placeholder='Nombres')
+          div.mb-3
+            label.form-label Apellidos
+            input.form-control(name='apellidos',placeholder='Apellidos')
+          div.mb-3
+            label.form-label Celular
+            input.form-control(name='celular',placeholder='Celular')
+          div.mb-3
+            label.form-label Correo
+            input.form-control(type='email',name='correo',placeholder='Correo')
+          button.btn.btn-primary(type='submit') Crear
+      div.row

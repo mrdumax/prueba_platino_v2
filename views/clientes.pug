@@ -3,9 +3,13 @@ extends layout
 block content
   main.container.ContentView(role='main')
     .jumbotron
-      h1= title
+      h1.LetrasBlancas= title
     div.Lista
-      h2 'Lista de Clientes'
+      div.row.gy-1.gx-2.align-items-center
+        div.col-auto
+          h2 'Lista de Clientes'
+        div.col-auto
+          a.btn.btn-lg.btn-primary(href='clientes/crear' role='button') + Nuevo Cliente
       table(border='1').listing-table.table-info.table-striped
         tr.table-info
           th Nombres
