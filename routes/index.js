@@ -6,11 +6,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' });
 });
 
-/* Citas. */
-router.get('/citas', function(req, res, next) {
-  res.render('citas', { title: 'Citas' });
-});
- 
 /* Atenciones. */
 router.get('/atenciones', function(req, res, next) {
   res.render('atenciones', { title: 'Atenciones' });

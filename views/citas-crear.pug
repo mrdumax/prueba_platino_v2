@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  main.container.ContentView(role='main')
+    .jumbotron
+      h1.LetrasBlancas= title
+    div.Lista.col
+      div.row
+        form(method='POST',action='/citas/guardar')
+          div.mb-3
+            label.form-label Fecha
+            input.form-control(name='fecha',placeholder='Fecha')
+            input.form-control(name='idCliente',hidden='',value=idCliente)
+          div.mb-3
+            label.form-label Hora
+            input.form-control(name='hora',placeholder='Hora')
+          div.mb-3
+            label.form-label Estado
+            input.form-control(name='estado',placeholder='Estado')
+          button.btn.btn-primary(type='submit') Crear
+      div.row

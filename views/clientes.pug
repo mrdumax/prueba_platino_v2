@@ -7,7 +7,7 @@ block content
     div.Lista
       div.row.gy-1.gx-2.align-items-center
         div.col-auto
-          h2 'Lista de Clientes'
+          h2.LetrasBlancas 'Lista de Clientes'
         div.col-auto
           a.btn.btn-lg.btn-primary(href='clientes/crear' role='button') + Nuevo Cliente
       table(border='1').listing-table.table-info.table-striped
@@ -16,7 +16,8 @@ block content
           th Apellidos
           th Celular
           th Correo
-          th Acciones
+          th Citas
+          th Atenciones
         for cliente in clienteList
           tr.table-info
             td= cliente.nombres
@@ -24,4 +25,6 @@ block content
             td= cliente.celular
             td= cliente.correo
             td
-              a(href='/cliente/'+cliente._id) Editar
+              a(href='/citas?idCliente='+cliente._id) Ver Citas
+            td
+              a(href='/atenciones/ver?idCliente='+cliente._id) Ver Atenciones

@@ -3,8 +3,38 @@ extends layout
 block content
   main.container.ContentView(role='main')
     .jumbotron
-      h1= title
-      p.lead
-        | Estás en la página #{title}
-      a.btn.btn-lg.btn-primary(href='#' role='button') Botón &raquo;
-    .container
+      h1.LetrasBlancas= title
+    div
+      table(border='1').listing-table.table-info.table-striped
+        tr.table-info
+          th Nombres
+          td= cliente.nombres
+        tr.table-info
+          th Apellidos
+          td= cliente.apellidos
+        tr.table-info
+          th Celular
+          td= cliente.celular
+        tr.table-info
+          th Correo
+          td= cliente.correo
+    
+    div.Lista
+      div.row.gy-1.gx-2.align-items-center
+        div.col-auto
+          h2.LetrasBlancas 'Lista de Citas'
+        div.col-auto
+          a.btn.btn-lg.btn-primary(href='citas/crear' role='button') + Nueva Cita
+      table(border='1').listing-table.table-info.table-striped
+        tr.table-info
+          th Fecha
+          th Hora
+          th Estado
+          th Atención
+        for cita,index in cliente.citas  ? cliente.citas : []
+          tr.table-info
+            td= cita.fecha
+            td= cita.hora
+            td= cita.estado
+            td
+              a(href='/atenciones/registrar?idCliente='+cliente._id+'&indexCita='+index) Registrar Atenciones

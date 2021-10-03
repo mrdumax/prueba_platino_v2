@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var clientesRouter = require('./routes/clientes');
+var citasRouter = require('./routes/citas');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 
 app.use('/', indexRouter);
 app.use('/clientes', clientesRouter);
+app.use('/citas', citasRouter);
 
 app.get('/', function(req, res){
     res.render("index");
